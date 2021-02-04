@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "price-monitor-79956": {
+      "hosting": {
+        "app": [
+          "price-monitor-79956"
+        ]
+      }
+    }
+  }
+}
