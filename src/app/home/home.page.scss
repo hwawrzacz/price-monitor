@@ -1,27 +1,43 @@
-#container {
-  text-align: center;
+@import '../../variables';
 
+.home-screen__search-bar {
   position: absolute;
+  bottom: 64px;
   left: 0;
-  right: 0;
-  top: 50%;
-  transform: translateY(-50%);
+
+  backdrop-filter: blur(20px);
+  margin: auto $margin-big;
+  border-radius: $serach-bar-height;
+  border: 1px solid white;
+
+  input {
+    border-bottom: none;
+  }
 }
 
-#container strong {
-  font-size: 20px;
-  line-height: 26px;
+ion-button {
+  --border-radius: 4px;
 }
 
-#container p {
-  font-size: 16px;
-  line-height: 22px;
-
-  color: #8c8c8c;
-
-  margin: 0;
+.navigation {
+  width: 50%;
 }
 
-#container a {
-  text-decoration: none;
+ion-footer {
+  background-color: transparent;
+}
+
+ion-toolbar {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+
+  background-image: -webkit-radial-gradient(
+    calc(100% - 48px) 0,
+    circle,
+    transparent 0,
+    transparent 35px,
+    #1f79ff 35px
+  );  
 }
