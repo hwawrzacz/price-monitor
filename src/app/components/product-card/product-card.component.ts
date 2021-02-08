@@ -9,6 +9,6 @@ export class ProductCardComponent implements OnInit {
 
   constructor() { }
 
-  ngOnInit() {}
+  ngOnInit() { }
 
 }

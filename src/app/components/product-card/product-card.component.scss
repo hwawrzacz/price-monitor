@@ -1,0 +1,15 @@
+@import '../../../mixins.scss';
+
+ion-card {
+  margin-bottom: 16px;
+}
+
+ion-card-content {
+  display: flex;
+  flex-direction: column;
+
+  .average-price {
+    font-size: 2em;
+    font-weight: bold;
+  }
+}
