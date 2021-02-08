@@ -2,3 +2,20 @@
   left: 50%;
   transform: translateX(-50%);
 }
+
+@mixin padding-vertical($value) {
+  --padding-top: #{$value};
+  --padding-bottom: #{$value};
+}
+
+@mixin padding-horizontal($value) {
+  --padding-start: #{$value};
+  --padding-end: #{$value};
+}
+
+@mixin padding-all($value) {
+  --padding-top: #{$value};
+  --padding-bottom: #{$value};
+  --padding-start: #{$value};
+  --padding-end: #{$value};
+}

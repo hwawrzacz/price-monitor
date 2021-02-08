@@ -9,9 +9,10 @@ ion-content {
 }
 
 ion-input {
-  position: absolute;
-  bottom: 32px;
+  position: fixed;
+  bottom: calc(24px + #{$serach-bar-height});
   width: 90%;
+  height: $serach-bar-height;
   @include center-absolute-horizontal();
   
   --padding-top: 12px;
@@ -23,4 +24,15 @@ ion-input {
   backdrop-filter: blur(20px);
   background-color: rgba(white, 0.1);
   border-radius: $serach-bar-height;
+}
+
+ion-button {
+  position: fixed;
+  bottom: 8px;
+  width: 90%;
+  height: $serach-bar-height;
+
+  @include center-absolute-horizontal();
+  --border-radius: #{$serach-bar-height};
+  --background: linear-gradient(15deg, #A0C56E , #278F5E)
 }
