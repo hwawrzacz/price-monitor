@@ -1,18 +1,28 @@
 @import '../../variables';
+@import '../../mixins';
 
-.home-screen__search-bar {
+ion-content {
+  --background: url('../../assets/background/aurora.png');
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+
+ion-input {
   position: absolute;
-  bottom: 64px;
-  left: 0;
-
+  bottom: 32px;
+  width: 90%;
+  @include center-absolute-horizontal();
+  
+  --padding-top: 12px;
+  --padding-bottom: 12px;
+  --padding-start: 16px;
+  --padding-end: 16px;
+  font-size: 18px;
+  text-align: center;
   backdrop-filter: blur(20px);
-  margin: auto $margin-big;
+  background-color: rgba(white, 0.1);
   border-radius: $serach-bar-height;
-  border: 1px solid white;
-
-  input {
-    border-bottom: none;
-  }
 }
 
 ion-button {
