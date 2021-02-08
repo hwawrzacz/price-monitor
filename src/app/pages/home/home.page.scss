@@ -24,30 +24,3 @@ ion-input {
   background-color: rgba(white, 0.1);
   border-radius: $serach-bar-height;
 }
-
-ion-button {
-  --border-radius: 4px;
-}
-
-.navigation {
-  width: 50%;
-}
-
-ion-footer {
-  background-color: transparent;
-}
-
-ion-toolbar {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: nowrap;
-  justify-content: space-between;
-
-  background-image: -webkit-radial-gradient(
-    calc(100% - 48px) 0,
-    circle,
-    transparent 0,
-    transparent 35px,
-    #1f79ff 35px
-  );  
-}
