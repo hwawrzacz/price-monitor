@@ -8,31 +8,44 @@ ion-content {
   position: relative;
 }
 
-ion-input {
+ion-input, ion-button {  
   position: fixed;
+  left: 16px;
+  right: 16px;
+  --height: $serach-bar-height;
+  max-width: calc(100% - 2 * #{$home-screen-padding});
+}
+
+ion-input {
   bottom: calc(24px + #{$serach-bar-height});
-  width: 90%;
-  height: $serach-bar-height;
-  @include center-absolute-horizontal();
-  
+
   --padding-top: 12px;
   --padding-bottom: 12px;
   --padding-start: 16px;
   --padding-end: 16px;
+
   font-size: 18px;
+  box-sizing: border-box;
   text-align: center;
   backdrop-filter: blur(20px);
-  background-color: rgba(white, 0.1);
   border-radius: $serach-bar-height;
 }
 
 ion-button {
-  position: fixed;
   bottom: 8px;
-  width: 90%;
-  height: $serach-bar-height;
 
-  @include center-absolute-horizontal();
   --border-radius: #{$serach-bar-height};
   --background: linear-gradient(15deg, #A0C56E , #278F5E)
+}
+
+@media (prefers-color-scheme: light) {
+  ion-input {
+    background-color: rgba(black, 0.1);
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  ion-input {
+    background-color: rgba(white, 0.1);
+  }
 }
