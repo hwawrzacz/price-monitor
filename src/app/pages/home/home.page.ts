@@ -18,6 +18,10 @@ export class HomePage implements OnInit {
     this.observeCollectionChanges();
   }
 
+  public openSettingsDialog(): void {
+    console.log('Settings');
+  }
+
   private observeCollectionChanges(): void {
     this._testCollection$
       .pipe(
