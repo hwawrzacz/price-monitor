@@ -1,9 +1,45 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>settings</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="onClose()">Zamknij</ion-button>
+    </ion-buttons>
+
+    <ion-title>Ustawienia</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
+  <ion-list>
+    <ion-list-header>Źródła danych</ion-list-header>
 
+    <ion-item>
+      <ion-label>Pobieraj ceny globalne</ion-label>
+      <ion-checkbox></ion-checkbox>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Udostępniaj ceny globalnie</ion-label>
+      <ion-checkbox></ion-checkbox>
+    </ion-item>
+  </ion-list>
+
+  <ion-list>
+    <ion-list-header>Personalizacja</ion-list-header>
+    <ion-item>
+      <ion-label>Język</ion-label>
+      <ion-select value="pl">
+        <ion-select-option value="pl">Polski</ion-select-option>
+        <ion-select-option value="en">Angielski</ion-select-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Waluta</ion-label>
+      <ion-select value="pln">
+        <ion-select-option value="pln">PLN</ion-select-option>
+        <ion-select-option value="eur">EUR</ion-select-option>
+        <ion-select-option value="usd">USD </ion-select-option>
+      </ion-select>
+    </ion-item>
+  </ion-list>
 </ion-content>

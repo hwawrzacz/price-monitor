@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
+import { ModalController } from '@ionic/angular';
 import { Observable } from 'rxjs';
-import { tap } from 'rxjs/operators';
+import { catchError, tap } from 'rxjs/operators';
+import { SettingsPage } from '../settings/settings.page';
 
 @Component({
   selector: 'app-home',
@@ -11,15 +13,26 @@ import { tap } from 'rxjs/operators';
 export class HomePage implements OnInit {
   private _testCollection$: Observable<any>;
 
-  constructor(private _firestore: AngularFirestore) { }
+  constructor(private _firestore: AngularFirestore, private _modalController: ModalController) { }
 
   public ngOnInit(): void {
     this._testCollection$ = this._firestore.collection('test').valueChanges();
     this.observeCollectionChanges();
+    this.onOpenSettingsDialog();
   }
 
-  public openSettingsDialog(): void {
-    console.log('Settings');
+  public onOpenSettingsDialog(): void {
+    this.openSettingsDialog()
+      .then(res => console.log(res))
+      .catch(err => console.error(err))
+  }
+
+  private async openSettingsDialog(): Promise<void> {
+    const settingsModal = await this._modalController.create({
+      component: SettingsPage,
+      swipeToClose: true
+    });
+    return settingsModal.present();
   }
 
   private observeCollectionChanges(): void {
