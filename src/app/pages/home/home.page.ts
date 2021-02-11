@@ -35,6 +35,7 @@ export class HomePage implements OnInit {
   private async openSettingsDialog(): Promise<void> {
     const settingsModal = await this._modalController.create({
       component: SettingsPage,
+      mode: 'ios',
       swipeToClose: true,
     });
     return settingsModal.present();
@@ -50,6 +51,7 @@ export class HomePage implements OnInit {
     const priceInsertionPopover = await this._modalController.create({
       component: PriceInsertionComponent,
       cssClass: 'modal--bottom',
+      mode: 'ios',
       swipeToClose: true,
     });
     return priceInsertionPopover.present();
