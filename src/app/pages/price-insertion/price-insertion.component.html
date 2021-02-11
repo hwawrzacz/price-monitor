@@ -1,3 +1,19 @@
-<p>
-  price-insertion works!
-</p>
+<hr class="drag-bar">
+
+<ion-card-header>
+  <ion-card-title>Nowa cena</ion-card-title>
+</ion-card-header>
+<ion-card-content>
+  <form>
+    <ion-input class="product-name" placeholder="Nazwa produktu"></ion-input>
+    <div class="price-wrapper">
+
+      <ion-input type="number" class="product-price" placeholder="Cena"></ion-input>
+      <ion-select value="kg">
+        <ion-select-option value="pcs">szt.</ion-select-option>
+        <ion-select-option value="kg">kg</ion-select-option>
+        <ion-select-option value="g">g</ion-select-option>
+      </ion-select>
+    </div>
+  </form>
+</ion-card-content>

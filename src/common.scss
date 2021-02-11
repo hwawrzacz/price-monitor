@@ -1,0 +1,16 @@
+// ====================================
+// ============== MODALS ==============
+// ====================================
+.modal--bottom {
+  top: 50%;
+  --background: var(--ion-card-background);
+}
+
+hr.drag-bar {
+  border-radius: $border-radius;
+  height: 4px;
+  width: 40%;
+  margin: 0 auto;
+  background-color: white;
+  margin: calc(2 * #{$home-screen-padding}) auto $home-screen-padding;
+}
