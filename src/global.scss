@@ -28,6 +28,6 @@
 @import "./common";
 
 .modal--bottom {
-  top: 50%;
+  top: calc(100% - 340px);
   --background: var(--ion-card-background);
 }

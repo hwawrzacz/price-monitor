@@ -1,25 +1,39 @@
 @import "../../../variables";
 @import "../../../common";
 
-ion-input {
-  --padding-start: 16px;
-  --padding-end: 16px;
-  background: rgba(white, .1);
-  border-radius: $border-radius;
-  font-size: 1.3em;
+.page-container {
+  display: flex;
+  flex: 1 1;
+  flex-direction: column;
 }
 
-.price-wrapper {
-  display: flex;
-  align-items: center;
+h1 {
+  margin-bottom: calc(2 * #{$margin-big});
+}
 
-  margin-top: 16px;
-
+form {
+  flex: 1 1;
+  
   ion-input {
-    margin-right: 8px;
+    --padding-start: 16px;
+    --padding-end: 16px;
+    background: rgba(white, .1);
+    border-radius: $border-radius-full;
   }
 
-  ion-select {
-    font-size: 1.3em;
+  .price-wrapper {
+    display: flex;
+    align-items: center;
+    margin-top: 16px;
+    
+    ion-input {
+      margin-right: 8px;
+    }
   }
+}
+
+ion-button {
+  margin: 16px auto 0;
+  width: 100%;
+  justify-self: flex-end;
 }

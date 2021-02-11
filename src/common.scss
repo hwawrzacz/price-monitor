@@ -1,3 +1,10 @@
+// ===================================
+// ============== PAGES ==============
+// ===================================
+.page-container {
+  padding: $home-screen-padding;
+}
+
 // ====================================
 // ============== MODALS ==============
 // ====================================
@@ -7,10 +14,21 @@
 }
 
 hr.drag-bar {
-  border-radius: $border-radius;
+  border-radius: $border-radius-full;
   height: 4px;
   width: 40%;
   margin: 0 auto;
   background-color: white;
-  margin: calc(2 * #{$home-screen-padding}) auto $home-screen-padding;
+  margin: $home-screen-padding auto;
+}
+
+
+ion-button {
+  &.button--gradient {    
+    --border-radius: #{$serach-bar-height};
+    --background: linear-gradient(15deg, #A0C56E , #278F5E);
+    color: white;
+    height: $button-height;
+    min-width: $button-min-width;
+  }
 }
