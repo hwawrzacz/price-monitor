@@ -27,6 +27,7 @@ ion-input, ion-button {
 
 ion-input {
   bottom: calc(24px + #{$serach-bar-height});
+  --height: $serach-bar-height;
 
   --padding-top: 12px;
   --padding-bottom: 12px;
@@ -42,17 +43,17 @@ ion-input {
 
 ion-button {
   bottom: 8px;
-
-  --border-radius: #{$serach-bar-height};
-  --background: linear-gradient(15deg, #A0C56E , #278F5E)
+  height: $serach-bar-height;
 }
 
+// Light theme
 @media (prefers-color-scheme: light) {
   ion-input {
     background-color: rgba(black, 0.1);
   }
 }
 
+// Dark theme
 @media (prefers-color-scheme: dark) {
   ion-input {
     background-color: rgba(white, 0.1);
