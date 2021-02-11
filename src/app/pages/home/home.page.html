@@ -1,5 +1,5 @@
 <ion-content [fullscreen]="true">
-  <ion-icon (click)="openSettingsDialog()" class="settings-icon" name="settings-outline"></ion-icon>
+  <ion-icon (click)="onOpenSettingsDialog()" class="settings-icon" name="settings-outline"></ion-icon>
 
   <app-product-card></app-product-card>
   <app-product-card></app-product-card>
@@ -10,7 +10,7 @@
 
   <ion-input autofocus class="home-screen__search-bar" placeholder="Szukaj produdktu"></ion-input>
 
-  <ion-button>
+  <ion-button (click)="onOpenPriceInsertionPopover()">
     <ion-icon name="add"></ion-icon>
     Dodaj cenę produktu
   </ion-button>
