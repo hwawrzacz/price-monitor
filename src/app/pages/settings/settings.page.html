@@ -9,6 +9,16 @@
 </ion-header>
 
 <ion-content>
+  <div class="profile-info">
+    <ion-avatar>
+      <img src="{{ photoURL }}" alt="User's profile photo">
+    </ion-avatar>
+    <h2>{{ displayName }}</h2>
+    <p>{{ email }}</p>
+  </div>
+
+  <hr class="separator" />
+
   <ion-list>
     <ion-list-header>Źródła danych</ion-list-header>
 

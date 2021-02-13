@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ModalController } from '@ionic/angular';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-settings',
@@ -9,7 +10,19 @@ import { ModalController } from '@ionic/angular';
 })
 export class SettingsPage implements OnInit {
 
-  constructor(private _modalController: ModalController) { }
+  get photoURL(): string {
+    return this._authService.user.photoURL;
+  }
+
+  get displayName(): string {
+    return this._authService.user.displayName;
+  }
+
+  get email(): string {
+    return this._authService.user.email;
+  }
+
+  constructor(private _modalController: ModalController, private _authService: AuthService) { }
 
   ngOnInit() {
   }
