@@ -24,11 +24,23 @@ hr.drag-bar {
 
 
 ion-button {
+  min-width: $button-min-width;
+
+  ion-icon {
+    margin-right: $button-icon-margin;
+  }
+
+  &.button--small {    
+    height: 30px;
+  }
+
+  &.button--main {    
+    height: $button-height;
+  }
+
   &.button--gradient {    
     --border-radius: #{$serach-bar-height};
     --background: linear-gradient(15deg, #A0C56E , #278F5E);
     color: white;
-    height: $button-height;
-    min-width: $button-min-width;
   }
 }
