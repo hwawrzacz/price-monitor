@@ -1,7 +1,7 @@
-import { ProfileSettings } from "./profile-settings";
 
 export interface User {
-  id: string;
+  uid: string;
   email: string;
-  settings: ProfileSettings;
+  displayName: string;
+  photoURL: string;
 }

@@ -20,9 +20,6 @@ export class HomePage implements OnInit {
   ) { }
 
   public ngOnInit(): void {
-    this._testCollection$ = this._firestore.collection('test').valueChanges();
-    this.observeCollectionChanges();
-    this.onOpenPriceInsertionPopover();
   }
 
   //#region Modals  
@@ -58,20 +55,4 @@ export class HomePage implements OnInit {
 
   }
   //#endregion
-
-  private observeCollectionChanges(): void {
-    this._testCollection$
-      .pipe(
-        tap(info => console.log(info))
-      )
-      .subscribe()
-  }
-
-  private handleResponse(response: any): void {
-    console.log(response, 'potential succes');
-  }
-
-  private handleError(error: any): void {
-    console.error(error);
-  }
 }
