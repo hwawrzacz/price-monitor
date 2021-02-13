@@ -26,23 +26,43 @@ export class AuthService {
     private _fireAuth: AngularFireAuth,
     private _navController: NavController,
     private _storageService: StorageService,
-  ) { }
-
-  public singInWithGoogle(): void {
-    console.log('logging in with google');
-
-    this._fireAuth.signInWithPopup(this._authProvider)
-      .then(credentials => this.handleLoginSuccess(credentials))
-      .catch(err => this.handleLoginError(err))
+  ) {
+    this._fireAuth.onAuthStateChanged(res => this.checkIfUserIsLoggedIn(res));
   }
 
-  private handleLoginSuccess(credentials: firebase.auth.UserCredential): void {
-    this._user = credentials.user;
-    this._storageService.put(StorageKey.USER, credentials);
+  private checkIfUserIsLoggedIn(res: any) {
+    !!res ? this.handleSignInSuccess(res) : this.handleSignInError(res, true);
+  }
+
+  public singInWithGoogle(): void {
+    this._fireAuth.signInWithPopup(this._authProvider)
+      .then(credentials => this.handleSignInSuccess(credentials.user))
+      .catch(err => this.handleSignInError(err));
+  }
+
+  public signOut(): void {
+    this._fireAuth.signOut()
+      .then(() => this.handleSignOutSuccess())
+      .catch(err => this.handleSignOutError(err));
+  }
+
+  //#region Response handlers
+  private handleSignInSuccess(user: User): void {
+    this._user = user;
+    this._storageService.put(StorageKey.USER, this._user);
     this._navController.navigateRoot(RouterPath.HOME);
   }
 
-  private handleLoginError(err: any): void {
+  private handleSignInError(err: any, autoLogin = false): void {
+    autoLogin ? {} : console.error(err);
+  }
+
+  private handleSignOutSuccess(): void {
+    this._navController.navigateRoot(RouterPath.LOGIN);
+  }
+
+  private handleSignOutError(err: any): void {
     console.error(err);
   }
+  //#endregion
 }

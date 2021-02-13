@@ -52,4 +52,15 @@
       </ion-select>
     </ion-item>
   </ion-list>
+
+  <ion-list>
+    <ion-list-header>Konto</ion-list-header>
+    <ion-item (click)="signOut()">
+      <ion-icon name="power"></ion-icon><span>Wyloguj</span>
+    </ion-item>
+
+    <ion-item class="color--warn">
+      <ion-icon name="trash"></ion-icon><span>Usuń konto</span>
+    </ion-item>
+  </ion-list>
 </ion-content>

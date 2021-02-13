@@ -22,12 +22,20 @@ export class SettingsPage implements OnInit {
     return this._authService.user.email;
   }
 
-  constructor(private _modalController: ModalController, private _authService: AuthService) { }
+  constructor(
+    private _modalController: ModalController,
+    private _authService: AuthService,
+  ) { }
 
   ngOnInit() {
   }
 
-  public onClose() {
+  public signOut(): void {
+    this.onClose();
+    this._authService.signOut();
+  }
+
+  public onClose(): void {
     this._modalController.dismiss()
   }
 
