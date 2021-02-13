@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, NgZone } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { NavController } from '@ionic/angular';
 import { default as firebase } from 'firebase';
@@ -26,6 +26,7 @@ export class AuthService {
     private _fireAuth: AngularFireAuth,
     private _navController: NavController,
     private _storageService: StorageService,
+    private _zone: NgZone,
   ) {
     this._fireAuth.onAuthStateChanged(res => this.checkIfUserIsLoggedIn(res));
   }
@@ -50,7 +51,7 @@ export class AuthService {
   private handleSignInSuccess(user: User): void {
     this._user = user;
     this._storageService.put(StorageKey.USER, this._user);
-    this._navController.navigateRoot(RouterPath.HOME);
+    this.navigate(RouterPath.HOME);
   }
 
   private handleSignInError(err: any, autoLogin = false): void {
@@ -58,11 +59,17 @@ export class AuthService {
   }
 
   private handleSignOutSuccess(): void {
-    this._navController.navigateRoot(RouterPath.LOGIN);
+    this.navigate(RouterPath.LOGIN);
   }
 
   private handleSignOutError(err: any): void {
     console.error(err);
   }
   //#endregion
+
+  private navigate(path: RouterPath): void {
+    this._zone.run(() => {
+      this._navController.navigateRoot(path);
+    })
+  }
 }
