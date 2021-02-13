@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { AngularFirestore } from '@angular/fire/firestore';
 import { ModalController } from '@ionic/angular';
-import { Observable } from 'rxjs';
-import { tap } from 'rxjs/operators';
+import { ProfileSettingsService } from 'src/app/services/profile-settings.service';
 import { PriceInsertionComponent } from '../price-insertion/price-insertion.component';
 import { SettingsPage } from '../settings/settings.page';
 
@@ -12,14 +10,14 @@ import { SettingsPage } from '../settings/settings.page';
   styleUrls: ['home.page.scss'],
 })
 export class HomePage implements OnInit {
-  private _testCollection$: Observable<any>;
 
   constructor(
-    private _firestore: AngularFirestore,
+    private _settingsService: ProfileSettingsService,
     private _modalController: ModalController,
   ) { }
 
   public ngOnInit(): void {
+    this._settingsService.loadUserData();
   }
 
   //#region Modals  
