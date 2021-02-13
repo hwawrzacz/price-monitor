@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { ActivatedRouteSnapshot, CanActivate, Router, RouterStateSnapshot, UrlTree } from '@angular/router';
+import { NavController } from '@ionic/angular';
 import { Observable } from 'rxjs';
 import { RouterPath } from '../model/enums/router-path';
 
@@ -7,12 +8,12 @@ import { RouterPath } from '../model/enums/router-path';
   providedIn: 'root'
 })
 export class AuthGuard implements CanActivate {
-  constructor(private _router: Router) { }
+  constructor(private _navController: NavController) { }
 
   canActivate(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-    this._router.navigate([RouterPath.HOME_PAGE]);
+    this._navController.navigateRoot(RouterPath.LOGIN);
     return false;
   }
 
