@@ -3,7 +3,9 @@ import { AngularFireAuth } from '@angular/fire/auth';
 import { NavController } from '@ionic/angular';
 import { default as firebase } from 'firebase';
 import { RouterPath } from '../model/enums/router-path';
+import { StorageKey } from '../model/enums/storage-key';
 import { User } from '../model/user';
+import { StorageService } from './storage.service';
 
 @Injectable({
   providedIn: 'root'
@@ -20,7 +22,11 @@ export class AuthService {
     return !!this._user;
   }
 
-  constructor(private _fireAuth: AngularFireAuth, private _navController: NavController) { }
+  constructor(
+    private _fireAuth: AngularFireAuth,
+    private _navController: NavController,
+    private _storageService: StorageService,
+  ) { }
 
   public singInWithGoogle(): void {
     console.log('logging in with google');
@@ -32,6 +38,7 @@ export class AuthService {
 
   private handleLoginSuccess(credentials: firebase.auth.UserCredential): void {
     this._user = credentials.user;
+    this._storageService.put(StorageKey.USER, credentials);
     this._navController.navigateRoot(RouterPath.HOME);
   }
 
