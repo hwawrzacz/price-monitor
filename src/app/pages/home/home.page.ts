@@ -22,9 +22,7 @@ export class HomePage implements OnInit {
 
   //#region Modals  
   public onOpenSettingsDialog(): void {
-    this.openSettingsDialog()
-      .then(res => console.log(res))
-      .catch(err => console.error(err));
+    this.openSettingsDialog().catch(err => console.error(err));
   }
 
   private async openSettingsDialog(): Promise<void> {
@@ -37,9 +35,7 @@ export class HomePage implements OnInit {
   }
 
   public onOpenPriceInsertionPopover(): void {
-    this.openPriceInsertionPopover()
-      .then(res => console.log(res))
-      .catch(err => console.error(err));
+    this.openPriceInsertionPopover().catch(err => console.error(err));
   }
 
   private async openPriceInsertionPopover(): Promise<void> {
