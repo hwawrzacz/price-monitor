@@ -12,10 +12,10 @@ import { AuthService } from './auth.service';
 })
 export class ProfileSettingsService {
   private readonly DEFAULT_SETTINGS = {
+    fetchGlobally: false,
+    shareGlobally: false,
     language: Language.PL,
     currency: Currency.PLN,
-    shareGrobally: false,
-    fetchGlobally: false,
   } as ProfileSettings;
 
   public profileSettings$: BehaviorSubject<ProfileSettings>;
@@ -46,6 +46,7 @@ export class ProfileSettingsService {
 
   //#region Saving data
   public updateProfileSettings(newSettings: ProfileSettings): void {
+    console.log('srv: update')
     this.profileSettings$.next(newSettings);
     this.updateSettingsRemotely(newSettings)
   }

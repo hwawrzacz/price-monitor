@@ -19,39 +19,43 @@
 
   <hr class="separator" />
 
-  <ion-list>
-    <ion-list-header>Źródła danych</ion-list-header>
+  <form>
+    <ion-list>
+      <ion-list-header>Źródła danych</ion-list-header>
 
-    <ion-item>
-      <ion-label>Pobieraj ceny globalne</ion-label>
-      <ion-checkbox></ion-checkbox>
-    </ion-item>
+      <ion-item>
+        <ion-label>Pobieraj ceny globalne</ion-label>
+        <ion-checkbox [checked]="settings.fetchGlobally" (ionChange)="updateFetchGlobally($event)">
+        </ion-checkbox>
+      </ion-item>
 
-    <ion-item>
-      <ion-label>Udostępniaj ceny globalnie</ion-label>
-      <ion-checkbox></ion-checkbox>
-    </ion-item>
-  </ion-list>
+      <ion-item>
+        <ion-label>Udostępniaj ceny globalnie</ion-label>
+        <ion-checkbox [checked]="settings.shareGlobally" (ionChange)="updateShareGlobally($event)">
+        </ion-checkbox>
+      </ion-item>
+    </ion-list>
 
-  <ion-list>
-    <ion-list-header>Personalizacja</ion-list-header>
-    <ion-item>
-      <ion-label>Język</ion-label>
-      <ion-select value="pl">
-        <ion-select-option value="pl">Polski</ion-select-option>
-        <ion-select-option value="en">Angielski</ion-select-option>
-      </ion-select>
-    </ion-item>
+    <ion-list>
+      <ion-list-header>Personalizacja</ion-list-header>
+      <ion-item>
+        <ion-label>Język</ion-label>
+        <ion-select [value]="settings.language" (ionChange)="updateLanguage($event)">
+          <ion-select-option value="pl">Polski</ion-select-option>
+          <ion-select-option value="en">Angielski</ion-select-option>
+        </ion-select>
+      </ion-item>
 
-    <ion-item>
-      <ion-label>Waluta</ion-label>
-      <ion-select value="pln">
-        <ion-select-option value="pln">PLN</ion-select-option>
-        <ion-select-option value="eur">EUR</ion-select-option>
-        <ion-select-option value="usd">USD </ion-select-option>
-      </ion-select>
-    </ion-item>
-  </ion-list>
+      <ion-item>
+        <ion-label>Waluta</ion-label>
+        <ion-select [value]="settings.currency" (ionChange)="updateCurrency($event)">
+          <ion-select-option value="pln">PLN</ion-select-option>
+          <ion-select-option value="eur">EUR</ion-select-option>
+          <ion-select-option value="usd">USD </ion-select-option>
+        </ion-select>
+      </ion-item>
+    </ion-list>
+  </form>
 
   <ion-list>
     <ion-list-header>Konto</ion-list-header>
