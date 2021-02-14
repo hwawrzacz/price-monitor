@@ -13,8 +13,9 @@
     <ion-avatar>
       <img src="{{ photoURL }}" alt="User's profile photo">
     </ion-avatar>
-    <h2>{{ displayName }}</h2>
-    <p>{{ email }}</p>
+    
+    <h2>{{ isProfileBasedUser ? displayName : 'ID urządzenia' }}</h2>
+    <p>{{ email || displayName }}</p>
   </div>
 
   <hr class="separator" />
