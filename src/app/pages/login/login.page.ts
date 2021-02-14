@@ -6,12 +6,13 @@ import { AuthService } from 'src/app/services/auth.service';
   templateUrl: './login.page.html',
   styleUrls: ['./login.page.scss'],
 })
-export class LoginPage implements OnInit {
+export class LoginPage {
+
+  get isChecking(): boolean {
+    return this._authService.isChecking;
+  }
 
   constructor(private _authService: AuthService) { }
-
-  ngOnInit() {
-  }
 
   public singInWithGoogle(): void {
     this._authService.singInWithGoogle();

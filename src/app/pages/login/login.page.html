@@ -3,10 +3,13 @@
     <ion-button (click)="singInWithGoogle()" class="button--gradient">
       <ion-icon name="logo-google"></ion-icon>Logowanie z Google
     </ion-button>
-    <p>Zostaniesz przekierowany do panelu potwierdzenia tożsamości w przeglądarce</p>
     
     <ion-button (click)="singInWithDeviceId()" class="button--gradient">
       <ion-icon name="id-card"></ion-icon>Logowanie przez ID urządzenia
     </ion-button>
   </section>
+
+  <div *ngIf="isChecking" class="full-screen-loader">  
+    <ion-spinner name="crescent" color="primary"></ion-spinner>
+  </div>
 </ion-content>

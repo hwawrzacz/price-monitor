@@ -6,6 +6,7 @@
 }
 
 ion-content {
+  background: var(--ion-card-background);
   --background: var(--ion-card-background);
 }
 
@@ -14,6 +15,7 @@ ion-content {
 // ====================================
 .modal--bottom {
   top: 50%;
+  background: var(--ion-card-background);
   --background: var(--ion-card-background);
 }
 
@@ -69,3 +71,25 @@ hr.separator {
   background-color: var(--ion-color-light);
   border: none;
 }
+
+// =====================================
+// ============== LOADERS ==============
+// =====================================
+.full-screen-loader {
+  position: absolute;
+  z-index: 1000;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: var(--ion-card-background);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  ion-spinner {
+    transform: scale(2);
+  }
+}
+
