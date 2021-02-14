@@ -17,4 +17,7 @@ export class LoginPage implements OnInit {
     this._authService.singInWithGoogle();
   }
 
+  public singInWithDeviceId(): void {
+    this._authService.signInWithDeviceId();
+  }
 }

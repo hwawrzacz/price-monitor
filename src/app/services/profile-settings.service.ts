@@ -26,7 +26,8 @@ export class ProfileSettingsService {
 
   //#region Loading data
   public loadUserData(): void {
-    this._firestore.collection(`profiles`).doc(this._authService.user.uid).valueChanges()
+    const collection = `${this._authService.user.loginType}s`;
+    this._firestore.collection(collection).doc(this._authService.user.uid).valueChanges()
       .pipe(
         tap((settings: ProfileSettings) => this.handleUserSettingsReceived(settings))
       )
@@ -46,13 +47,13 @@ export class ProfileSettingsService {
 
   //#region Saving data
   public updateProfileSettings(newSettings: ProfileSettings): void {
-    console.log('srv: update')
     this.profileSettings$.next(newSettings);
     this.updateSettingsRemotely(newSettings)
   }
 
   private updateSettingsRemotely(value: ProfileSettings): void {
-    this._firestore.collection(`profiles`).doc(this._authService.user.uid).set(value)
+    const collection = `${this._authService.user.loginType}s`;
+    this._firestore.collection(collection).doc(this._authService.user.uid).set(value)
   }
   //#endregion
 }
