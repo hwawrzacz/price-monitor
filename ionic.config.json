@@ -1,5 +1,5 @@
 {
-  "name": "price-monitor",
+  "name": "Price monitor",
   "integrations": {
     "capacitor": {}
   },
