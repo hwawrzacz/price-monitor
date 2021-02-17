@@ -18,4 +18,12 @@ ion-item {
   flex-direction: column;
   align-items: center;
   background-color: var(--ion-card-background);
+
+  h2 {
+    margin-top: 12px;
+  }
+
+  p {
+    margin: 0;
+  }
 }
