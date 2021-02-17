@@ -1,22 +1,23 @@
 @import "../../../variables";
 @import "../../../common";
 
-.page-container {
+.content {
+  height: 100%;
   display: flex;
-  flex: 1 1;
   flex-direction: column;
-}
-
-h1 {
-  margin-bottom: calc(2 * #{$margin-big});
+  justify-content: flex-start;
+  align-items: center;
+  padding: $home-screen-padding $home-screen-padding 0;
+  background-color: var(--ion-card-background);
 }
 
 form {
-  flex: 1 1;
-  
+  width: 100%;
+
   ion-input {
     --padding-start: 16px;
     --padding-end: 16px;
+    height: $serach-bar-height;
     background: rgba(white, .1);
     border-radius: $border-radius-full;
   }
@@ -32,7 +33,7 @@ form {
   }
 }
 
-ion-button {
+ion-button.button--gradient {
   margin: 16px auto 0;
   width: 100%;
   justify-self: flex-end;
