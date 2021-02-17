@@ -26,8 +26,3 @@
 @import "~@ionic/angular/css/flex-utils.css";
 @import "./variables";
 @import "./common";
-
-.modal--bottom {
-  top: calc(100% - 340px);
-  --background: var(--ion-card-background);
-}

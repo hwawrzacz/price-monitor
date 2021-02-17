@@ -5,18 +5,11 @@
   padding: $home-screen-padding;
 }
 
-ion-content {
-  background: var(--ion-card-background);
-  --background: var(--ion-card-background);
-}
-
 // ====================================
 // ============== MODALS ==============
 // ====================================
 .modal--bottom {
-  top: 50%;
-  background: var(--ion-card-background);
-  --background: var(--ion-card-background);
+  top: calc(100% - #{$insertion-modal-height}) !important;
 }
 
 hr.drag-bar {
@@ -68,6 +61,7 @@ ion-button {
 hr.separator {
   height: 1px;
   width: 100%;
+  margin: 0;
   background-color: var(--ion-color-light);
   border: none;
 }
@@ -82,7 +76,7 @@ hr.separator {
   left: 0;
   width: 100vw;
   height: 100vh;
-  background-color: var(--ion-card-background);
+  background-color: var(--ion-background-color);
 
   display: flex;
   justify-content: center;
