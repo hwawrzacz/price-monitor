@@ -25,7 +25,7 @@
         </div>
       </div>
     </form>
-    <ion-button class="button--gradient" align="end" (click)="onInsert()">
+    <ion-button class="button--gradient" align="end" [disabled]="!form.valid" (click)="onInsert()">
       <ion-icon name="add"></ion-icon>Dodaj
     </ion-button>
   </div>

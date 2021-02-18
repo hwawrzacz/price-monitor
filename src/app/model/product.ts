@@ -13,5 +13,5 @@ export interface Product {
   domesticCurrency: Currency;
   unit: Unit;
   isBargain: boolean;
-  date: Date;
+  date: string;
 }

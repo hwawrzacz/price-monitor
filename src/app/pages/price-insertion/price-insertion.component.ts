@@ -1,9 +1,10 @@
-import { Component, Inject, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ModalController } from '@ionic/angular';
 import { Currency } from 'src/app/model/enums/currency';
 import { getUnitsStringList, Unit } from 'src/app/model/enums/unit';
 import { Product, ProductPrice } from 'src/app/model/product';
+import { PriceInsertionService } from 'src/app/services/price-insertion.service';
 import { ProfileSettingsService } from 'src/app/services/profile-settings.service';
 
 @Component({
@@ -30,7 +31,8 @@ export class PriceInsertionComponent implements OnInit {
   constructor(
     private _modalController: ModalController,
     private _formBuilder: FormBuilder,
-    private _settings: ProfileSettingsService
+    private _settings: ProfileSettingsService,
+    private _priceInsertionService: PriceInsertionService,
   ) { }
 
   ngOnInit() {
@@ -42,7 +44,7 @@ export class PriceInsertionComponent implements OnInit {
       name: [this.initialName, [Validators.required]],
       price: [null, [Validators.required]],
       unit: [Unit.PCS, [Validators.required]],
-      isBargain: [null, [Validators.required]]
+      isBargain: [false, [Validators.required]]
     })
   }
 
@@ -51,15 +53,17 @@ export class PriceInsertionComponent implements OnInit {
       name: this._form.get('name').value,
       price: { [this.domesticCurrency]: this._form.get('price').value } as ProductPrice,
       unit: this._form.get('unit').value,
+      isBargain: this._form.get('isBargain').value,
       domesticCurrency: this.domesticCurrency,
-      isBargain: false,
-      date: new Date(Date.now()),
+      date: new Date(Date.now()).toUTCString(),
     } as Product;
   }
 
   public onInsert(): void {
-    const price = this.parseFromForm();
-    console.log(price);
+    const product = this.parseFromForm();
+    this._priceInsertionService.insertProduct(product)
+      .then(() => console.log('Item added'))
+      .catch(console.error)
   }
 
   public onClose(): void {
