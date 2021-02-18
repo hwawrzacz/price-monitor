@@ -18,7 +18,6 @@ form {
     --padding-start: 16px;
     --padding-end: 16px;
     height: $serach-bar-height;
-    background: rgba(white, .1);
     border-radius: $border-radius-full;
   }
 
@@ -37,4 +36,22 @@ ion-button.button--gradient {
   margin: 16px auto 0;
   width: 100%;
   justify-self: flex-end;
+}
+
+// Light mode
+@media (prefers-color-scheme: light) {
+  form {
+    ion-input {
+      background: rgba(black, .1);
+    }
+  }
+}
+
+// Dark mode
+@media (prefers-color-scheme: dark) {  
+  form {
+  ion-input {
+    background: rgba(white, .1);
+  }
+}
 }
