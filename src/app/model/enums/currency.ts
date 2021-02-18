@@ -3,3 +3,7 @@ export enum Currency {
   EUR = 'eur',
   USD = 'usd',
 }
+
+export const getCurrenciesStringList = (): string[] => {
+  return Object.values(Currency);
+};

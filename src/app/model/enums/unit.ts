@@ -5,3 +5,7 @@ export enum Unit {
   L = 'l',
   ML = 'ml',
 }
+
+export const getUnitsStringList = (): string[] => {
+  return Object.values(Unit);
+};
