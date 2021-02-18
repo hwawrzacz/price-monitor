@@ -9,7 +9,10 @@
 // ============== MODALS ==============
 // ====================================
 .modal--bottom {
-  top: calc(100% - #{$insertion-modal-height}) !important;
+  & > .modal-wrapper {
+    position: absolute;
+    top: calc(100% - #{$insertion-modal-height}) !important;
+  }
 }
 
 hr.drag-bar {
