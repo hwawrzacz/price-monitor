@@ -10,18 +10,23 @@
 
 <ion-content>
   <div class="content">
-    <form>
-      <ion-input class="product-name" placeholder="Nazwa produktu"></ion-input>
+    <form [formGroup]="form">
+      <ion-input class="product__name" placeholder="Nazwa produktu" formControlName="name"></ion-input>
       <div class="price-wrapper">
 
-        <ion-input type="number" class="product-price" placeholder="Cena"></ion-input>
-        <ion-select value="kg">
-          <ion-select-option value="pcs">szt.</ion-select-option>
-          <ion-select-option value="kg">kg</ion-select-option>
-          <ion-select-option value="g">g</ion-select-option>
-        </ion-select>
+        <ion-input type="number" class="product__price" placeholder="Cena" formControlName="price"></ion-input>
+
+        <div class="product__price__labels">
+          <span class="price__currency">{{ domesticCurrency }}</span>
+          <span class="price__slash">/</span>
+          <ion-select formControlName="unit">
+            <ion-select-option *ngFor="let unit of units" [value]="unit">{{ unit }}</ion-select-option>
+          </ion-select>
+        </div>
       </div>
     </form>
-    <ion-button class="button--gradient" align="end">Dodaj</ion-button>
+    <ion-button class="button--gradient" align="end" (click)="onInsert()">
+      <ion-icon name="add"></ion-icon>Dodaj
+    </ion-button>
   </div>
 </ion-content>

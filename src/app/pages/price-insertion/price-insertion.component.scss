@@ -32,6 +32,17 @@ form {
   }
 }
 
+.product__price__labels {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.2em;
+
+  .price__slash{
+    margin-left: $margin-medium;
+  }
+}
+
 ion-button.button--gradient {
   margin: 16px auto 0;
   width: 100%;
