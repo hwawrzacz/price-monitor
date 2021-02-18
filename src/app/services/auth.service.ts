@@ -6,6 +6,7 @@ import { NavController } from '@ionic/angular';
 import { default as Firebase } from 'firebase';
 import { of } from 'rxjs';
 import { catchError, tap } from 'rxjs/operators';
+import { LoginType } from '../model/enums/login-type';
 import { RouterPath } from '../model/enums/router-path';
 import { StorageKey } from '../model/enums/storage-key';
 import { createDeviceIdBasedUser, createProfileBasedUser, User } from '../model/user';
@@ -21,6 +22,10 @@ export class AuthService {
 
   get user(): User {
     return this._user;
+  }
+
+  get isProfileBasedUser(): boolean {
+    return this.user.loginType === LoginType.PROFILE;
   }
 
   get isChecking(): boolean {

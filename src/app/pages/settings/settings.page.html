@@ -11,11 +11,11 @@
 <ion-content>
   <div class="profile-info">
     <ion-avatar>
-      <img src="{{ photoURL }}" alt="User's profile photo">
+      <img src="{{ user.photoURL }}" alt="User's profile photo">
     </ion-avatar>
 
-    <h2>{{ isProfileBasedUser ? displayName : 'ID urządzenia' }}</h2>
-    <p>{{ email || displayName }}</p>
+    <h2>{{ isProfileBasedUser ? user.displayName : 'ID urządzenia' }}</h2>
+    <p>{{ user.email || user.displayName }}</p>
   </div>
 
   <hr class="separator" />

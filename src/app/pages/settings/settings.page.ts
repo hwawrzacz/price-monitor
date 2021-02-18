@@ -3,8 +3,8 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ModalController } from '@ionic/angular';
 import { Subject } from 'rxjs';
 import { takeUntil, tap } from 'rxjs/operators';
-import { LoginType } from 'src/app/model/enums/login-type';
 import { ProfileSettings } from 'src/app/model/profile-settings';
+import { User } from 'src/app/model/user';
 import { AuthService } from 'src/app/services/auth.service';
 import { ProfileSettingsService } from 'src/app/services/profile-settings.service';
 
@@ -28,19 +28,11 @@ export class SettingsPage implements OnInit, OnDestroy {
   }
 
   get isProfileBasedUser(): boolean {
-    return this._authService.user.loginType === LoginType.PROFILE;
+    return this._authService.isProfileBasedUser;
   }
 
-  get photoURL(): string {
-    return this._authService.user.photoURL;
-  }
-
-  get displayName(): string {
-    return this._authService.user.displayName;
-  }
-
-  get email(): string {
-    return this._authService.user.email;
+  get user(): User {
+    return this._authService.user;
   }
 
   constructor(
